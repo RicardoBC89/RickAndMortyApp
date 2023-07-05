@@ -11,7 +11,6 @@ final class RMTabViewController: UITabBarController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .red
         setUpTabs()
         
     }
@@ -32,7 +31,7 @@ final class RMTabViewController: UITabBarController {
         let nav3 = UINavigationController(rootViewController: locationvc)
         let nav4 = UINavigationController(rootViewController: settingvc)
         
-        nav1.tabBarItem = UITabBarItem(title: Character", image: UIImage(systemName: "person"), tag: 1)
+        nav1.tabBarItem = UITabBarItem(title: "Character", image: UIImage(systemName: "person"), tag: 1)
         nav2.tabBarItem = UITabBarItem(title: "Episode", image: UIImage(systemName: "tv"), tag: 2)
         nav3.tabBarItem = UITabBarItem(title: "Location", image: UIImage(systemName: "map"), tag: 3)
         nav4.tabBarItem = UITabBarItem(title: "Setting", image: UIImage(systemName: "gear"), tag: 4)
