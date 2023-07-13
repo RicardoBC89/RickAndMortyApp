@@ -8,7 +8,7 @@
 import Foundation
 
 enum RMEndpoint: String {
-    case carachter
+    case character
     case episode
     case location
 }
