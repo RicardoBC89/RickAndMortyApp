@@ -12,7 +12,8 @@ final class RMCharacterCollectionViewCell: UICollectionViewCell {
     
     private let imageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.contentMode = .scaleAspectFit
+        imageView.contentMode = .scaleAspectFill
+        imageView.clipsToBounds = true
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
@@ -43,7 +44,7 @@ final class RMCharacterCollectionViewCell: UICollectionViewCell {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        contentView.backgroundColor = .secondarySystemBackground
+        contentView.backgroundColor = .systemGray4
         contentView.addSubviews(imageView, nameLabel, speciesLabel, statusLabel)
         addConstrains()
     }
@@ -54,14 +55,14 @@ final class RMCharacterCollectionViewCell: UICollectionViewCell {
     
     private func addConstrains() {
         NSLayoutConstraint.activate([
-            imageView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 5),
-            imageView.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 5),
-            imageView.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -5),
-            imageView.heightAnchor.constraint(equalToConstant: 150),
-            nameLabel.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: 10),
+            imageView.topAnchor.constraint(equalTo: contentView.topAnchor),
+            imageView.leftAnchor.constraint(equalTo: contentView.leftAnchor),
+            imageView.rightAnchor.constraint(equalTo: contentView.rightAnchor),
+            imageView.heightAnchor.constraint(equalToConstant: 160),
+            nameLabel.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: 7),
             nameLabel.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 10),
             nameLabel.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -10),
-            nameLabel.heightAnchor.constraint(equalToConstant: 40),
+            nameLabel.heightAnchor.constraint(equalToConstant: 35),
             speciesLabel.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: 3),
             speciesLabel.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 10),
             speciesLabel.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -10),
@@ -83,7 +84,7 @@ final class RMCharacterCollectionViewCell: UICollectionViewCell {
     
     public func configure(with viewModel: RMCharacterCollectionViewCellViewModel) {
         nameLabel.text = viewModel.characterName
-        speciesLabel.text = viewModel.characterSpecies
+        speciesLabel.text = viewModel.characterSpeciesText
         statusLabel.text = viewModel.characterStatusText
         viewModel.fetchImage { [weak self] result in
             switch result {
