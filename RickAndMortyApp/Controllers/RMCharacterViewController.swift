@@ -7,8 +7,8 @@
 
 import UIKit
 
-final class RMCharacterViewController: UIViewController {
-
+final class RMCharacterViewController: UIViewController, RMCharacterListViewDelegate {
+    
     private let charcterListView = RMCharacterListView()
     
     override func viewDidLoad() {
@@ -16,6 +16,7 @@ final class RMCharacterViewController: UIViewController {
         view.backgroundColor = .systemBackground
         self.title = "Character"
         view.addSubview(charcterListView)
+        charcterListView.delegate = self
         setUpSubview()
         }
 
@@ -25,5 +26,11 @@ final class RMCharacterViewController: UIViewController {
             charcterListView.rightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.rightAnchor),
             charcterListView.leftAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leftAnchor),
             charcterListView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)])
+    }
+    
+    func rmCharacterListView(_ characterListView: RMCharacterListView, didSelectCharacter character: RMCharacter) {
+        let viewModel = RMCharacterDetailViewViewModel(character: character)
+        let detailVC = RMCharacterDetailViewController(viewModel: viewModel)
+        navigationController?.pushViewController(detailVC, animated: true)
     }
 }
