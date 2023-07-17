@@ -5,11 +5,10 @@
 //  Created by User on 05/07/23.
 //
 
-import Foundation
 import UIKit
 
 final class RMCharacterListViewViewModel: NSObject {
-    func fetchCharacters() {
+   public func fetchCharacters() {
         RMService.shared.execute(.listCharactersRequest, expecting: RMGetAllCharacterResponse.self) { result in
             switch result {
             case .success(let model):
@@ -27,8 +26,11 @@ extension RMCharacterListViewViewModel: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath)
-        cell.backgroundColor = .green 
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: RMCharacterCollectionViewCell.cellIdentifier, for: indexPath) as? RMCharacterCollectionViewCell else {
+            fatalError("Unsuported cell")
+        }
+        let viewModel = RMCharacterCollectionViewCellViewModel(characterName: "Ricardo", characterSpecies: "Human", characterStatus: .alive, characterImageUrl: URL(string: "https://rickandmortyapi.com/api/character/avatar/1.jpeg"))
+        cell.configure(with: viewModel)
         return cell
     }
 }
