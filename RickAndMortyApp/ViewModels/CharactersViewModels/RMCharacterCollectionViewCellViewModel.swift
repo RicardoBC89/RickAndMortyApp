@@ -44,11 +44,8 @@ final class RMCharacterCollectionViewCellViewModel {
                 completion(.failure(error ?? URLError(.badServerResponse)))
                 return
             }
-            
             completion(.success(data))
         }
-            
         task.resume()
     }
-       
 }

@@ -1,17 +1,17 @@
 //
-//  RMCharacterDetailViewController.swift
+//  RMLocationDetailViewController.swift
 //  RickAndMortyApp
 //
-//  Created by User on 17/07/23.
+//  Created by User on 18/07/23.
 //
 
 import UIKit
 
-final class RMCharacterDetailViewController: UIViewController {
+class RMLocationDetailViewController: UIViewController {
 
-    private let viewModel: RMCharacterDetailViewViewModel
+    private let viewModel: RMLocationDetailViewViewModel
     
-    init(viewModel: RMCharacterDetailViewViewModel) {
+    init(viewModel: RMLocationDetailViewViewModel) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
     }
@@ -19,9 +19,10 @@ final class RMCharacterDetailViewController: UIViewController {
     required init?(coder: NSCoder) {
         fatalError("Unsupported")
     }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .systemBackground
+        view.backgroundColor = .systemBlue
         title = viewModel.title
     }
 }

@@ -1,22 +1,21 @@
 //
-//  RMCharacterListView.swift
+//  RMLocationListView.swift
 //  RickAndMortyApp
 //
-//  Created by User on 05/07/23.
+//  Created by User on 17/07/23.
 //
 
 import UIKit
-
-protocol RMCharacterListViewDelegate: AnyObject {
-    func rmCharacterListView(_ characterListView: RMCharacterListView,
-                             didSelectCharacter character: RMCharacter
+protocol RMLocationListViewDelegate: AnyObject {
+    func rmLocationListView(_ locationListView: RMLocationListView,
+                            didSelectLocation location: RMLocation
     )
 }
 
-final class RMCharacterListView: UIView {
+final class RMLocationListView: UIView {
     
-    public weak var delegate: RMCharacterListViewDelegate?
-    private let viewModel = RMCharacterListViewViewModel()
+    public weak var delegate: RMLocationListViewDelegate?
+    private let viewModel = RMLocationListViewViewModel()
     
     private let spinner: UIActivityIndicatorView = {
         let spinner = UIActivityIndicatorView(style: .large)
@@ -24,7 +23,7 @@ final class RMCharacterListView: UIView {
         spinner.translatesAutoresizingMaskIntoConstraints = false
         return spinner
     }()
-    
+
     private let collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
@@ -33,7 +32,7 @@ final class RMCharacterListView: UIView {
         collectionView.isHidden = true
         collectionView.alpha = 0
         collectionView.translatesAutoresizingMaskIntoConstraints = false
-        collectionView.register(RMCharacterCollectionViewCell.self, forCellWithReuseIdentifier: RMCharacterCollectionViewCell.cellIdentifier)
+        collectionView.register(RMLocationCollectionViewCell.self, forCellWithReuseIdentifier: RMLocationCollectionViewCell.cellIdentifier)
         return collectionView
     }()
     
@@ -45,12 +44,12 @@ final class RMCharacterListView: UIView {
         addCollectionViewConstraints()
         spinner.startAnimating()
         viewModel.delegate = self
-        viewModel.fetchCharacters()
+        viewModel.fetchLocations()
         setUpCollectionView()
     }
-    
+ 
     required init?(coder: NSCoder) {
-        fatalError("Unsuported")
+        fatalError("Unsupported")
     }
     
     private func addSpinnerConstraints() {
@@ -70,24 +69,26 @@ final class RMCharacterListView: UIView {
             collectionView.bottomAnchor.constraint(equalTo: bottomAnchor)
         ])
     }
-
+    
     private func setUpCollectionView() {
         collectionView.dataSource = viewModel
         collectionView.delegate = viewModel
     }
 }
 
-extension RMCharacterListView: RMCharacterListViewViewModelDelegate {
-    func didSelectCharacter(_ character: RMCharacter) {
-        delegate?.rmCharacterListView(self, didSelectCharacter: character)
+extension RMLocationListView: RMLocationListViewViewModelDelegate {
+   
+    func didSelectLocation(_ location: RMLocation) {
+        delegate?.rmLocationListView(self, didSelectLocation: location)
     }
     
-    func didLoadInicialCharacter() {
+    func didLoadInicialLocation() {
         spinner.stopAnimating()
         collectionView.isHidden = false
         collectionView.reloadData()
-            UIView.animate(withDuration: 0.4) {
+        UIView.animate(withDuration: 0.4) {
                 self.collectionView.alpha = 1
         }
     }
 }
+

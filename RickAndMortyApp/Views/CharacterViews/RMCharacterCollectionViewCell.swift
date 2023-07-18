@@ -50,7 +50,7 @@ final class RMCharacterCollectionViewCell: UICollectionViewCell {
     }
     
     required init?(coder: NSCoder) {
-        fatalError("Unsuported")
+        fatalError("Unsupported")
     }
     
     private func addConstrains() {
