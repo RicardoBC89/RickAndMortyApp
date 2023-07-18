@@ -45,6 +45,7 @@
 		CEF3981C2A66B8DC00163DC4 /* RMLocationDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF3981B2A66B8DC00163DC4 /* RMLocationDetailViewController.swift */; };
 		CEF3981E2A66BA1D00163DC4 /* RMLocationDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF3981D2A66BA1D00163DC4 /* RMLocationDetailView.swift */; };
 		CEF398202A66C25D00163DC4 /* RMFooterLoadingCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF3981F2A66C25D00163DC4 /* RMFooterLoadingCollectionReusableView.swift */; };
+		CEF398222A670CA100163DC4 /* RMImageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF398212A670CA100163DC4 /* RMImageManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -88,6 +89,7 @@
 		CEF3981B2A66B8DC00163DC4 /* RMLocationDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RMLocationDetailViewController.swift; sourceTree = "<group>"; };
 		CEF3981D2A66BA1D00163DC4 /* RMLocationDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RMLocationDetailView.swift; sourceTree = "<group>"; };
 		CEF3981F2A66C25D00163DC4 /* RMFooterLoadingCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RMFooterLoadingCollectionReusableView.swift; sourceTree = "<group>"; };
+		CEF398212A670CA100163DC4 /* RMImageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RMImageManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -198,6 +200,7 @@
 		CEA209662A54607500E10DFF /* Managers */ = {
 			isa = PBXGroup;
 			children = (
+				CEF398212A670CA100163DC4 /* RMImageManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -374,6 +377,7 @@
 				CEA2094F2A545AA900E10DFF /* SceneDelegate.swift in Sources */,
 				CEA2097D2A5499E100E10DFF /* RMEndpoint.swift in Sources */,
 				CEE125EE2A65B2AB008D2B45 /* RMLocationListViewViewModel.swift in Sources */,
+				CEF398222A670CA100163DC4 /* RMImageManager.swift in Sources */,
 				CEF3981E2A66BA1D00163DC4 /* RMLocationDetailView.swift in Sources */,
 				CEE125E12A6065C2008D2B45 /* RMCharacterCollectionViewCell.swift in Sources */,
 				CEA209712A5461FA00E10DFF /* RMCharacterViewController.swift in Sources */,
